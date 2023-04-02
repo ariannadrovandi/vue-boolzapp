@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#app{
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding-top: 30px;
+    background: linear-gradient(
+    #009688 0%,
+    #009688 130px,
+    #d9dbd5 130px,
+    #d9dbd5 100%);
+}
+
+.container{
+    width: 80%;
+    height: 95%; 
+    border: 1px solid black;
+    background-color: #d9dbd5;
+    padding: 0;
+}
+
+.container-left{
+    width: 35%;
+    height: 100%;
+}
+.container-right{
+    width: 65%;
+    height: 100%;
+}
+
+.left-profile{
+    height: 70px;
+    background-color: #eaeaea;
+}
+
+.div-image{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.div-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.icons i{
+    color: #b0aeae;
+    font-size: 1rem;
+    margin: 0px 10px;
+}
+
+.notification{
+    height: 80px;
+    background-color: #7acdf3;
+}
+
+.notification .bell-icon{
+    background-color: #ffffff;
+}
+
+.notification .bell-icon i{
+    color: #7acdf3;
+    font-size: 1.2rem;
+}
+
+.notification-text p:last-child{
+    color: #737272;
+    font-size: 0.9rem;
+}
+
+.searchbox{
+    height: 55px;
+    background-color: #f9f9f9;
+}
+
+#search-magnifying-glass{
+    height: 38px;
+}
+
+.chat-list{
+    height: calc(100% - 205px);
+    overflow-y: auto;
+    background-color: #ffffff;
+}
+
+.ad-card{
+    border-top: 1px solid #f0f0f0;
+}
+
+.last-message{
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+.time p{
+    font-size: 0.6rem;
+}
+
+.last-message, .time p{
+    color: #bababa;
+}
+
+.chat-box{
+    height: calc(100% - 150px);
+    overflow-y: auto;
+    background-image: url('../img/mine.jpg');
+}
+
+.user-right{
+    background-color: #EAEAEA;
+    height: 70px;
+}
+
+.contact-info .name-contact{
+    font-size: 1rem;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.contact-info .last-seen{
+    font-size: 0.8rem;
+    margin-top: 0;
+    padding: 0;
+    color: #b0aeae;
+}
+
+.chat-message{
+    width: 80%;
+    border: 1px solid #e100ff;
+    height: 100%;
+    margin: 15px auto;
+    margin-top: 55px;
+}
+
+.messages{
+    width: 40%;
+    height: 80px;
+    border: 1px solid #3c70e9;
+    border-radius: 15px;
+    margin: 10px 0px;
+}
+
+.contact-message{
+    background-color: #ffffff;
+}
+
+.my-message{
+    background-color: #d5f9ba;
+}
+
+.message-box{
+    height: 40px;
+    background-color: #EAEAEA;
+}
+
+#message-just-written{
+    width: 85%;
+}
+

@@ -15,7 +15,105 @@
 <body>
     
     <div id="app">
-        
+        <div class="container d-flex">
+            <!-- right side -->
+           <div class="container-left">
+                <div class="left-profile d-flex justify-content-between align-items-center p-3">
+                    <div class="user d-flex align-items-center">
+                        <div class="div-image">
+                            <img src="./img/avatar_io.jpg" alt="me">
+                        </div>
+                        <p class="text-center my-3 px-2">Sofia</p>
+                    </div>
+                    <div class="icons">
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div> 
+                </div>
+                
+                <div class="notification d-flex align-items-center p-2">
+                    <div class="div-image bell-icon d-flex justify-content-center align-items-center">
+                        <i class="fa-solid fa-bell-slash"></i>
+                    </div>
+                    <div class="notification-text px-3">
+                        <p class="m-0">Ricevi notifiche di nuovi messaggi</p>
+                        <p class="m-0 text-decoration-underline">Attiva notifiche desktop</p>
+                    </div>
+                </div>
+
+                <div class="searchbox">
+                    <div class="search-user imput-group d-flex align-items-center p-2">
+                        <span class="input-group-text bg-light rounded-0" id="search-magnifying-glass"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <input type="text" class="form-control rounded-0" placeholder="Cerca o inizia una nuova chat" aria-label="User" aria-describedby="search-magnifying-glass">
+                    </div>
+                </div>
+
+                <div class="chat-list">
+                    <div v-for="(contact, index) in contacts" class="ad-card d-flex justify-content-between px-3 pt-3">
+                        <div class="contact-chat d-flex">
+                            <div class="div-image">
+                                <img :src="contact.avatar" :alt="contact.name">
+                            </div>
+                            <div class="contact-text px-3">
+                                <h6 class="m-0">{{contact.name}}</h6>
+                                <p class="last-message">Ultimo messaggio inviato</p>
+                            </div>
+                        </div>
+                        <div class="time">
+                            <p>12:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- right side -->
+            <div class="container-right">
+                <div class="user-right d-flex align-items-center justify-content-between p-2">
+                    <div class="d-flex align-items-center">
+                        <div class="div-image">
+                            <img src="./img/avatar_1.jpg" alt="Michele">
+                        </div>
+                        <div class="contact-info mt-3 px-3">
+                            <p class="name-contact">Michele</p>
+                            <p class="last-seen text-decoration-none">Ultimo accesso oggi alle 12:00</p>
+                        </div>
+                    </div>
+                    <div class="icons">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>  
+                </div>
+
+                <div class="chat-box">
+                    <div class="chat-message">
+                        <div class="my-box d-flex justify-content-end">
+                            <div class="messages my-message d-flex justify-content-end">
+                                my message
+                            </div>
+                        </div>
+                        <div class="contact-box">
+                            <div class="messages contact-message">
+                                user message
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="message-box d-flex align-items-center justify-content-between">
+                    <div class="icons d-flex align-items-center justify-content-center">
+                        <i class="fa-regular fa-face-smile"></i>
+                    </div>
+                    <div class="input-message d-flex align-items-center">
+                        <input type="text" class="form-control" id="message-just-written" placeholder="Scrivi un messaggio">
+                    </div>
+                    <div class="icons d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+                </div>
+           </div>
+        </div>
     </div>
 
 
