@@ -183,18 +183,61 @@ createApp ({
             oggi: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS),
             
             newMessage: '',
+            activeIndex: 0,
+            userMsg: [
+                {
+                    message: 'Ciao, come va?',
+                    status: 'received'
+                },
+                {
+                    message: 'Ci vediamo in questi giorni 😊',
+                    status: 'received'
+                },
+                {
+                    message: 'ricordati di portare fuori il cane!!',
+                    status: 'received'
+                },
+                {
+                    message: 'Noooo daii hahaha, non ci credooo',
+                    status: 'received'
+                },
+                {
+                    message: 'Seriamente? 👁️ 👄 👁️',
+                    status: 'received'
+                },
+                {
+                    message: 'Buonanotte 🩵',
+                    status: 'received'
+                }
+            ],
+            
 
         }
     },
     methods: {
-        addMessage() {
+        getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        },
+
+        addMessage(activeIndex) {
             const newMsg = {
                 message: this.newMessage,
                 status: 'sent',
             };
             console.log(newMsg);
             this.contacts[this.activeIndex].messages.push(newMsg);
-        }
+
+            const newUserMsg = {
+                message: this.userMsg[this.getRandomInt(0, 5)].message,
+                status: 'received',
+            };
+            console.log(newUserMsg);
+
+            setTimeout(()=> {
+                this.contacts[activeIndex].messages.push(newUserMsg);
+            }, 1500);
+            console.log('setTimeout');
+        },
     }
 
 }).mount('#app');

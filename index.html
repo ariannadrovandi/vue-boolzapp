@@ -20,8 +20,9 @@
     
     <div id="app">
         <div class="container d-flex">
-            <!-- right side -->
-           <div class="container-left">
+            <!-- LEFT SIDE -->
+            <div class="container-left">
+                <!-- LEFT USER PROFILE -->
                 <div class="left-profile d-flex justify-content-between align-items-center p-3">
                     <div class="user d-flex align-items-center">
                         <div class="div-image">
@@ -35,7 +36,7 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div> 
                 </div>
-                
+                <!-- NOTIFICATION -->
                 <div class="notification d-flex align-items-center p-2">
                     <div class="div-image bell-icon d-flex justify-content-center align-items-center">
                         <i class="fa-solid fa-bell-slash"></i>
@@ -45,16 +46,16 @@
                         <p class="m-0 text-decoration-underline">Attiva notifiche desktop</p>
                     </div>
                 </div>
-
+                <!-- SEARCH BOX  -->
                 <div class="searchbox">
                     <div class="search-user imput-group d-flex align-items-center p-2">
                         <span class="input-group-text bg-light rounded-0" id="search-magnifying-glass"><i class="fa-solid fa-magnifying-glass"></i></span>
                         <input type="text" class="form-control rounded-0" placeholder="Cerca o inizia una nuova chat" aria-label="User" aria-describedby="search-magnifying-glass">
                     </div>
                 </div>
-
+                <!-- CHAT LIST -->
                 <div class="chat-list">
-                    <div v-for="(contact, index) in contacts" class="ad-card d-flex justify-content-between px-3 pt-3">
+                    <div class="ad-card d-flex justify-content-between px-3 pt-3" v-for="(contact, index) in contacts">
                         <div class="contact-chat d-flex">
                             <div class="div-image">
                                 <img :src="contact.avatar" :alt="contact.name">
@@ -71,8 +72,9 @@
                 </div>
             </div>
 
-            <!-- right side -->
+            <!-- RIGHT SIDE -->
             <div class="container-right">
+                <!-- PROFILE USER CHAT -->
                 <div class="user-right d-flex align-items-center justify-content-between p-2">
                     <div class="d-flex align-items-center">
                         <div class="div-image">
@@ -89,7 +91,7 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>  
                 </div>
-
+                <!-- CHAT BOX -->
                 <div class="chat-box">
                     <div class="chat-message">
                         <div class="my-box d-flex justify-content-end">
@@ -109,16 +111,16 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- MESSAGE BOX -->
                 <div class="message-box d-flex align-items-center justify-content-between">
                     <div class="icons">
-                        <button class="border-0 ms-2"><i class="fa-regular fa-face-smile"></i></button>
+                        <button class="border-0 ms-2 bg-transparent"><i class="fa-regular fa-face-smile"></i></button>
                     </div>
                     <div class="input-message d-flex align-items-center">
-                        <input type="text" class="form-control" id="message-just-written" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage">
+                        <input type="text" class="form-control" id="message-just-written" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage(activeIndex)">
                     </div>
                     <div class="icons">
-                        <button class="border-0 me-2"><i class="fa-solid fa-microphone"></i></button>
+                        <button @click="addMessage(activeIndex)" class="border-0 me-2 bg-transparent"><i class="fa-solid fa-microphone"></i></button>
                     </div>
                 </div>
            </div>
