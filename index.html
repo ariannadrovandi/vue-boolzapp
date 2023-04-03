@@ -10,6 +10,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <!-- css -->
     <link rel="stylesheet" href="./style/style.css">
+    <!-- luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
+    <!-- vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Boolzapp</title>
 </head>
 <body>
@@ -91,13 +95,15 @@
                         <div class="my-box d-flex justify-content-end">
                             <div class="messages message-sent d-flex justify-content-end">
                                 <span>ciao</span>
-                                <div class="time"></div>
+                                <div class="time">12:00</div>
+                                <button class="bg-transparent border-0"><i class="fa-solid fa-angle-down fa-sm" style="color: #b6b4b4;"></i></button>
                             </div>
                         </div>
                         <div class="contact-box">
                             <div class="messages message-received">
                                 <span>ciao</span>
-                                <div class="time"></div>
+                                <div class="time">12:00</div>
+                                <button class="bg-transparent border-0"><i class="fa-solid fa-angle-down fa-sm" style="color: #b6b4b4;"></i></button>
                             </div>
 
                         </div>
@@ -105,23 +111,20 @@
                 </div>
 
                 <div class="message-box d-flex align-items-center justify-content-between">
-                    <div class="icons d-flex align-items-center justify-content-center">
-                        <i class="fa-regular fa-face-smile"></i>
+                    <div class="icons">
+                        <button class="border-0 ms-2"><i class="fa-regular fa-face-smile"></i></button>
                     </div>
                     <div class="input-message d-flex align-items-center">
-                        <input type="text" class="form-control" id="message-just-written" placeholder="Scrivi un messaggio">
+                        <input type="text" class="form-control" id="message-just-written" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage">
                     </div>
-                    <div class="icons d-flex align-items-center justify-content-center">
-                        <i class="fa-solid fa-microphone"></i>
+                    <div class="icons">
+                        <button class="border-0 me-2"><i class="fa-solid fa-microphone"></i></button>
                     </div>
                 </div>
            </div>
         </div>
     </div>
-    <!-- luxon -->
-    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
-    <!-- vue.js -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
     <!-- file js -->
     <script type="text/javascript" src="./js/script.js"></script>
     <script type="text/javascript" src="./js/utility.js"></script>

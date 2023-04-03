@@ -108,7 +108,7 @@
 }
 
 .chat-box{
-    height: calc(100% - 150px);
+    height: calc(100% - 110px);
     overflow-y: auto;
     background-image: url('../img/mine.jpg');
 }
@@ -157,10 +157,11 @@
 
 .message-box{
     height: 40px;
+    margin-bottom: 0;
     background-color: #EAEAEA;
 }
 
-#message-just-written{
+.input-message{
     width: 85%;
 }
 
