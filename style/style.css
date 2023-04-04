@@ -31,6 +31,7 @@
 .container-right{
     width: 65%;
     height: 100%;
+    background-image: url('../img/mine.jpg');
 }
 
 .left-profile{
@@ -91,7 +92,7 @@
 }
 
 .ad-card{
-    border-top: 1px solid #f0f0f0;
+    border-top: 1px solid #ffffff;
 }
 
 .last-message{
@@ -104,13 +105,16 @@
 }
 
 .last-message, .time p{
-    color: #bababa;
+    color: #b0b0b0;
 }
 
 .chat-box{
-    height: calc(100% - 110px);
+    height: calc(100% - 150px);
     overflow-y: auto;
-    background-image: url('../img/mine.jpg');
+    width: 90%;
+    border: 1px solid #e100ff;
+    margin: 15px auto;
+    margin-top: 15px;
 }
 
 .user-right{
@@ -131,21 +135,9 @@
     color: #b0aeae;
 }
 
-.chat-message{
-    width: 80%;
-    border: 1px solid #e100ff;
-    height: 100%;
-    margin: 15px auto;
-    margin-top: 55px;
-}
-
-.messages{
-    width: 40%;
-    height: 80px;
-    border: 1px solid #3c70e9;
-    border-radius: 15px;
-    margin: 10px 0px;
-}
+/* .chat-message{
+    
+} */
 
 .message-received{
     background-color: #ffffff;
@@ -155,8 +147,18 @@
     background-color: #d5f9ba;
 }
 
+.message{
+    width: 40%;
+    height: 50px;
+    border: 1px solid #3c70e9;
+    border-radius: 8px;
+    margin: 10px 0px;
+    padding: 5px;
+    font-size: 14px;
+}
+
 .message-box{
-    height: 40px;
+    height: 50px;
     margin-bottom: 0;
     background-color: #EAEAEA;
 }
@@ -165,3 +167,6 @@
     width: 85%;
 }
 
+.active{
+    background-color: #eeecec;
+}

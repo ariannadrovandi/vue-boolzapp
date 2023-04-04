@@ -13,7 +13,7 @@
     <!-- luxon -->
     <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
     <!-- vue.js -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.global.min.js" integrity="sha512-DJ2+sosWB5FnZAIeCWAHu2gxQ7Gi438oOZLcBQSOrW8gD0s7LIXDv/5RW76B3FcljF40BXnfqNIo6Dhp7dFHJg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Boolzapp</title>
 </head>
 <body>
@@ -55,34 +55,34 @@
                 </div>
                 <!-- CHAT LIST -->
                 <div class="chat-list">
-                    <div class="ad-card d-flex justify-content-between px-3 pt-3" v-for="(contact, index) in contacts">
+                    <div class="ad-card d-flex justify-content-between px-3 pt-3" @click="activeIndex = index" v-for="(contact, index) in contacts" :key="contact.id" :class="{'active' : index === activeIndex, 'd-none' : !contact.visible}">
                         <div class="contact-chat d-flex">
                             <div class="div-image">
                                 <img :src="contact.avatar" :alt="contact.name">
                             </div>
                             <div class="contact-text px-3">
                                 <h6 class="m-0">{{contact.name}}</h6>
-                                <p class="last-message">Ultimo messaggio inviato</p>
+                                <p class="last-message">{{contact?.messages[contact.messages.length -1].message || ''}}</p>
                             </div>
                         </div>
                         <div class="time">
-                            <p>12:00</p>
+                            <p>{{contact?.messages[contact.messages.length -1].date || ''}}</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- RIGHT SIDE -->
-            <div class="container-right">
+            <div class="container-right" > <!--:class="{'d-none' : !showChat}"-->
                 <!-- PROFILE USER CHAT -->
                 <div class="user-right d-flex align-items-center justify-content-between p-2">
                     <div class="d-flex align-items-center">
                         <div class="div-image">
-                            <img src="./img/avatar_1.jpg" alt="Michele">
+                            <img :src="contacts[activeIndex].avatar" :alt="contacts[activeIndex].name">
                         </div>
                         <div class="contact-info mt-3 px-3">
-                            <p class="name-contact">Michele</p>
-                            <p class="last-seen text-decoration-none">Ultimo accesso oggi alle 12:00</p>
+                            <p class="name-contact">{{contacts[activeIndex].name}}</p>
+                            <p class="last-seen text-decoration-none">ultimo accesso</p> <!--{{contacts.[activeIndex]?.messages[contacts[activeIndex].messages.length -1].date || ''}}-->
                         </div>
                     </div>
                     <div class="icons">
@@ -92,23 +92,10 @@
                     </div>  
                 </div>
                 <!-- CHAT BOX -->
-                <div class="chat-box">
-                    <div class="chat-message">
-                        <div class="my-box d-flex justify-content-end">
-                            <div class="messages message-sent d-flex justify-content-end">
-                                <span>ciao</span>
-                                <div class="time">12:00</div>
-                                <button class="bg-transparent border-0"><i class="fa-solid fa-angle-down fa-sm" style="color: #b6b4b4;"></i></button>
-                            </div>
-                        </div>
-                        <div class="contact-box">
-                            <div class="messages message-received">
-                                <span>ciao</span>
-                                <div class="time">12:00</div>
-                                <button class="bg-transparent border-0"><i class="fa-solid fa-angle-down fa-sm" style="color: #b6b4b4;"></i></button>
-                            </div>
-
-                        </div>
+                <div class="chat-box"> <!-- :class=""-->
+                    <div class="message" v-for="(msg, index) in contacts[activeIndex].messages" :key="index" ref="items"> <!--:class="" -->
+                        <span>{{msg.message}}</span>
+                        <div class="time">{{msg.date}}</div>
                     </div>
                 </div>
                 <!-- MESSAGE BOX -->
@@ -117,7 +104,7 @@
                         <button class="border-0 ms-2 bg-transparent"><i class="fa-regular fa-face-smile"></i></button>
                     </div>
                     <div class="input-message d-flex align-items-center">
-                        <input type="text" class="form-control" id="message-just-written" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage(activeIndex)">
+                        <input type="text" class="form-control" id="message-just-written" placeholder="Scrivi un messaggio" v-model.trim="newMessage" @keyup.enter="addMessage(activeIndex)">
                     </div>
                     <div class="icons">
                         <button @click="addMessage(activeIndex)" class="border-0 me-2 bg-transparent"><i class="fa-solid fa-microphone"></i></button>

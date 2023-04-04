@@ -179,11 +179,10 @@ createApp ({
     data() {
         return{
             contacts: contacts,
-            selectedItem: null,
-            oggi: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS),
-            
-            newMessage: '',
             activeIndex: 0,
+            showChat: false,
+            newMessage: '',
+            contactSearch: '',
             userMsg: [
                 {
                     message: 'Ciao, come va?',
@@ -194,7 +193,7 @@ createApp ({
                     status: 'received'
                 },
                 {
-                    message: 'ricordati di portare fuori il cane!!',
+                    message: 'Ricordati di iviare la mail !',
                     status: 'received'
                 },
                 {
@@ -215,29 +214,41 @@ createApp ({
         }
     },
     methods: {
+        selectChat(index){
+            this.activeIndex = index;
+        },
+        
         getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         },
 
         addMessage(activeIndex) {
             const newMsg = {
+                date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT),
                 message: this.newMessage,
                 status: 'sent',
             };
-            console.log(newMsg);
+            // console.log(newMsg);
             this.contacts[this.activeIndex].messages.push(newMsg);
+            this.newMessage = '';
+
 
             const newUserMsg = {
+                date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT),
                 message: this.userMsg[this.getRandomInt(0, 5)].message,
                 status: 'received',
             };
-            console.log(newUserMsg);
+            // console.log(newUserMsg);
 
             setTimeout(()=> {
-                this.contacts[activeIndex].messages.push(newUserMsg);
-            }, 1500);
-            console.log('setTimeout');
+                this.contacts[this.activeIndex].messages.push(newUserMsg);
+                this.$nextTick(()=>{
+                    this.$refs.items[this.$refs.items.length -1].scrollIntoView()  //scroll chat
+                });
+            }, 1000);
+            // console.log('setTimeout');
         },
+
     }
 
 }).mount('#app');
