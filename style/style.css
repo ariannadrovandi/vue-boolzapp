@@ -100,7 +100,7 @@
     text-decoration: none;
 }
 
-.time p{
+.time, .time p{
     font-size: 0.6rem;
 }
 
@@ -149,7 +149,7 @@
 
 .message{
     width: 40%;
-    height: 50px;
+    height: 63px;
     border: 1px solid #3c70e9;
     border-radius: 8px;
     margin: 10px 0px;

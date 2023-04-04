@@ -193,7 +193,7 @@ createApp ({
                     status: 'received'
                 },
                 {
-                    message: 'Ricordati di iviare la mail !',
+                    message: 'Ricordati di inviare la mail !',
                     status: 'received'
                 },
                 {
@@ -218,10 +218,6 @@ createApp ({
             this.activeIndex = index;
         },
         
-        getRandomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        },
-
         addMessage(activeIndex) {
             const newMsg = {
                 date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT),
@@ -235,7 +231,7 @@ createApp ({
 
             const newUserMsg = {
                 date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT),
-                message: this.userMsg[this.getRandomInt(0, 5)].message,
+                message: this.userMsg[getRandomInt(0, 5)].message,
                 status: 'received',
             };
             // console.log(newUserMsg);

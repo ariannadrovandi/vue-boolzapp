@@ -73,7 +73,7 @@
             </div>
 
             <!-- RIGHT SIDE -->
-            <div class="container-right" > <!--:class="{'d-none' : !showChat}"-->
+            <div class="container-right"> <!--:class="{'d-none' : !showChat}"-->
                 <!-- PROFILE USER CHAT -->
                 <div class="user-right d-flex align-items-center justify-content-between p-2">
                     <div class="d-flex align-items-center">
@@ -92,8 +92,8 @@
                     </div>  
                 </div>
                 <!-- CHAT BOX -->
-                <div class="chat-box"> <!-- :class=""-->
-                    <div class="message" v-for="(msg, index) in contacts[activeIndex].messages" :key="index" ref="items"> <!--:class="" -->
+                <div class="chat-box">
+                    <div class="message" v-for="(msg, index) in contacts[activeIndex].messages" :key="index" ref="items" :class="{'message-received' : msg.status === 'received', 'message-sent' : msg.status === 'sent'}" > 
                         <span>{{msg.message}}</span>
                         <div class="time">{{msg.date}}</div>
                     </div>
