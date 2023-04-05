@@ -1,4 +1,4 @@
-import Picker from './emoji-picker';
+// import Picker from './emoji-picker';
 
 const contacts = [
     {
@@ -250,11 +250,11 @@ createApp ({
         },
 
         // filtro i contatti
-        searchContacts() { 
-            this.contacts
-        },
+        // searchContacts() { 
+            
+        // },
 
-        // emoji
+        // emoji picker
         // onSelectEmoji(emoji) {
         //     console.log(emoji)
         //     this.messageText += emoji.i;
@@ -272,5 +272,7 @@ createApp ({
 
     }
 
-}).component('Picker', Picker).mount('#app');
+}).mount('#app');
+
+// .component('Picker', Picker)
 

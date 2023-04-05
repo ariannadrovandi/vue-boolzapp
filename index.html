@@ -97,10 +97,13 @@
                 </div>
                 <!-- CHAT BOX -->
                 <div class="chat-box">
-                    <div class="message" v-for="(msg, index) in contacts[activeIndex].messages" :key="index" ref="items" :class="{'message-received' : msg.status === 'received', 'message-sent' : msg.status === 'sent'}" > 
-                        <span class="message-text">{{msg.message}}</span>
-                        <div class="time message-time">{{msg.date}}</div>
+                    <div class="d-flex" v-for="(msg, index) in contacts[activeIndex].messages" :key="index" ref="items" :class="{'justify-content-end' : msg.status === 'sent'}">
+                        <div class="message" :class="{'message-received' : msg.status === 'received', 'message-sent' : msg.status === 'sent'}"> 
+                            <span class="message-text">{{msg.message}}</span>
+                            <div class="time message-time">{{msg.date}}</div>
+                        </div>
                     </div>
+                    
                 </div>
                 <!-- INPUT MESSAGE BOX -->
                 <div class="message-box d-flex align-items-center justify-content-between">
