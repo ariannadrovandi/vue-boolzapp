@@ -251,13 +251,13 @@ createApp ({
 
         // filtro i contatti
         filterContacts() { 
-            console.log(this.searchContactText);
+            // console.log(this.searchContactText);
             this.contacts.forEach((contact)=> {
                 if (!contact.name.toLowerCase().includes(this.searchContactText.toLowerCase())) {
                     contact.visible = false;
                 } else {
                     contact.visible = true;
-                    console.log('true');
+                    // console.log('true');
                 }
             })
         },
