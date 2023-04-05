@@ -164,6 +164,26 @@
     right: 5px;
 }
 
+.message-options{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.message-options-panel{
+    z-index: 100;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    background-color: #ffffff;
+    border: 1px solid #c4c3c3;
+    color: #979595;
+    font-size: 0.8rem;
+    padding: 7px;
+}
+
 .message-box{
     height: 50px;
     margin-bottom: 0;

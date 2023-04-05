@@ -186,6 +186,10 @@ createApp ({
             newMessage: '',
             searchContactText: '',
             showEmoji: false,
+            messageActive: {
+                index : false,
+                show : false
+            },
             userMsg: [
                 {
                     message: 'Ciao, come va?',
@@ -260,6 +264,17 @@ createApp ({
                     // console.log('true');
                 }
             })
+        },
+
+        //opzioni messaggio
+        showOptions(index) {
+            // faccio in modo che si apra solo quello selezionato 
+            if (this.messageActive.index !== false && this.messageActive.index !== index) {
+                this.messageActive.show = false;
+                this.messageActive.index = false;
+            }
+            this.messageActive.show = (this.messageActive.show) ? false : true;
+            this.messageActive.index = index;
         },
 
         // emoji picker

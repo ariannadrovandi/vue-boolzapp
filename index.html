@@ -101,6 +101,11 @@
                         <div class="message" :class="{'message-received' : msg.status === 'received', 'message-sent' : msg.status === 'sent'}"> 
                             <span class="message-text">{{msg.message}}</span>
                             <div class="time message-time">{{msg.date}}</div>
+                            <i class="fa fa-chevron-down f-right message-options" @click="showOptions(index)"></i>
+                            <div class="message-options-panel" v-if="messageActive.show && messageActive.index === index">
+                                <div class="message-info">Info messaggio</div>
+                                <div class="message-destroy">Cancella messaggio</div>
+                            </div>
                         </div>
                     </div>
                     
