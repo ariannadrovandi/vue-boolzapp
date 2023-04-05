@@ -14,6 +14,10 @@
     <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
     <!-- vue.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.global.min.js" integrity="sha512-DJ2+sosWB5FnZAIeCWAHu2gxQ7Gi438oOZLcBQSOrW8gD0s7LIXDv/5RW76B3FcljF40BXnfqNIo6Dhp7dFHJg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- emoji picker -->
+    <script type="module" src="./js/emoji-picker.js"></script>
+    <!-- emoji picker css -->
+    <link rel="stylesheet" href="./js/style.css">
     <title>Boolzapp</title>
 </head>
 <body>
@@ -94,14 +98,17 @@
                 <!-- CHAT BOX -->
                 <div class="chat-box">
                     <div class="message" v-for="(msg, index) in contacts[activeIndex].messages" :key="index" ref="items" :class="{'message-received' : msg.status === 'received', 'message-sent' : msg.status === 'sent'}" > 
-                        <span>{{msg.message}}</span>
-                        <div class="time">{{msg.date}}</div>
+                        <span class="message-text">{{msg.message}}</span>
+                        <div class="time message-time">{{msg.date}}</div>
                     </div>
                 </div>
-                <!-- MESSAGE BOX -->
+                <!-- INPUT MESSAGE BOX -->
                 <div class="message-box d-flex align-items-center justify-content-between">
                     <div class="icons">
-                        <button class="border-0 ms-2 bg-transparent"><i class="fa-regular fa-face-smile"></i></button>
+                        <button class="border-0 ms-2 bg-transparent">
+                            <i class="fa-regular fa-face-smile"></i>
+                            <!-- <Picker @select="onSelectEmoji" class="mia" :class="{'d-none': !showEmoji}" /> -->
+                        </button>
                     </div>
                     <div class="input-message d-flex align-items-center">
                         <input type="text" class="form-control" id="message-just-written" placeholder="Scrivi un messaggio" v-model.trim="newMessage" @keyup.enter="addMessage(activeIndex)">

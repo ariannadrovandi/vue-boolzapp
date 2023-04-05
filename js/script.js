@@ -1,3 +1,5 @@
+import Picker from './emoji-picker';
+
 const contacts = [
     {
         id:1,
@@ -182,7 +184,8 @@ createApp ({
             activeIndex: 0,
             showChat: false,
             newMessage: '',
-            contactSearch: '',
+            searchContactText: '',
+            showEmoji: false,
             userMsg: [
                 {
                     message: 'Ciao, come va?',
@@ -218,6 +221,7 @@ createApp ({
             this.activeIndex = index;
         },
         
+        // aggiungo messaggi automatici casuali
         addMessage(activeIndex) {
             const newMsg = {
                 date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT),
@@ -245,7 +249,28 @@ createApp ({
             // console.log('setTimeout');
         },
 
+        // filtro i contatti
+        searchContacts() { 
+            this.contacts
+        },
+
+        // emoji
+        // onSelectEmoji(emoji) {
+        //     console.log(emoji)
+        //     this.messageText += emoji.i;
+        //     /*
+        //       // result
+        //       { 
+        //           i: "😚", 
+        //           n: ["kissing face"], 
+        //           r: "1f61a", // with skin tone
+        //           t: "neutral", // skin tone
+        //           u: "1f61a" // without tone
+        //       }
+        //       */
+        // },
+
     }
 
-}).mount('#app');
+}).component('Picker', Picker).mount('#app');
 
