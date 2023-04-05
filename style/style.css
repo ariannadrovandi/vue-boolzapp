@@ -85,7 +85,7 @@
     height: 38px;
 }
 
-.chat-list{
+.contacts-list{
     height: calc(100% - 205px);
     overflow-y: auto;
     background-color: #ffffff;

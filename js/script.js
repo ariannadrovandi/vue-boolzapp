@@ -250,9 +250,17 @@ createApp ({
         },
 
         // filtro i contatti
-        // searchContacts() { 
-            
-        // },
+        filterContacts() { 
+            console.log(this.searchContactText);
+            this.contacts.forEach((contact)=> {
+                if (!contact.name.toLowerCase().includes(this.searchContactText.toLowerCase())) {
+                    contact.visible = false;
+                } else {
+                    contact.visible = true;
+                    console.log('true');
+                }
+            })
+        },
 
         // emoji picker
         // onSelectEmoji(emoji) {
@@ -270,6 +278,9 @@ createApp ({
         //       */
         // },
 
+    },
+    computed: {
+        
     }
 
 }).mount('#app');

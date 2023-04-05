@@ -53,12 +53,12 @@
                 <!-- SEARCH BOX  -->
                 <div class="searchbox">
                     <div class="search-user imput-group d-flex align-items-center p-2">
-                        <span class="input-group-text bg-light rounded-0" id="search-magnifying-glass"><i class="fa-solid fa-magnifying-glass"></i></span>
-                        <input type="text" class="form-control rounded-0" placeholder="Cerca o inizia una nuova chat" aria-label="User" aria-describedby="search-magnifying-glass">
+                        <button class="input-group-text bg-light rounded-0" id="search-magnifying-glass" @click="filterContacts"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <input type="text" class="form-control rounded-0" placeholder="Cerca o inizia una nuova chat" aria-label="User" aria-describedby="search-magnifying-glass" v-model="searchContactText" @keyup="filterContacts">
                     </div>
                 </div>
-                <!-- CHAT LIST -->
-                <div class="chat-list">
+                <!-- CONTACTS LIST -->
+                <div class="contacts-list">
                     <div class="ad-card d-flex justify-content-between px-3 pt-3" @click="activeIndex = index" v-for="(contact, index) in contacts" :key="contact.id" :class="{'active' : index === activeIndex, 'd-none' : !contact.visible}">
                         <div class="contact-chat d-flex">
                             <div class="div-image">
