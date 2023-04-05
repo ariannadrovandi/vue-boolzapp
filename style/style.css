@@ -184,6 +184,10 @@
     padding: 7px;
 }
 
+.message-info:hover, .message-destroy:hover{
+    color: black;
+}
+
 .message-box{
     height: 50px;
     margin-bottom: 0;
