@@ -112,7 +112,7 @@
     height: calc(100% - 150px);
     overflow-y: auto;
     width: 90%;
-    border: 1px solid #e100ff;
+    /* border: 1px solid #e100ff; */
     margin: 15px auto;
     margin-top: 15px;
 }
@@ -150,7 +150,7 @@
 .message{
     width: 40%;
     height: 63px;
-    border: 1px solid #3c70e9;
+    /* border: 1px solid #3c70e9; */
     border-radius: 8px;
     margin: 10px 0px;
     padding: 5px;
